@@ -14,8 +14,7 @@ export const Flight = () => {
   const flightsAll = useSelector(selectAllFlights).flat();
   const loading = useSelector((state) => state.flight.loading);
   console.log(flightsAll);
-  console.log('loading:', loading);
-  const getDate = (date) => new Date(date).toLocaleString();
+  const getDate = (date) => new Date(date).toUTCString();
   if (loading) return <div>Loading...</div>;
   return (
     <div className='flight'>

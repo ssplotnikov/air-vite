@@ -59,6 +59,7 @@
       text-align: center;
       width: 100%;
       &-value {
+        margin: 0 auto;
         padding: 0 10px;
         color: rgb(255, 157, 65);
       }
@@ -102,6 +103,7 @@
       text-align: center;
       width: 100%;
       &-value {
+        margin: 0 auto;
         padding: 0 10px;
         color: rgb(255, 157, 65);
       }
@@ -121,7 +123,3 @@
     padding: 10px;
   }
 }
-
-// .fieldset {
-
-// }
