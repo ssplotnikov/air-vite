@@ -44,10 +44,13 @@ export const Flight = () => {
           </div>
         </div>
         <fieldset className='flight__there-transfer'>
-          <legend className='flight__there-transfer-value'>1 пересадка</legend>
+          <legend className='flight__there-transfer-value'>
+            {flightsAll[0].flight.legs[0].segments[0].stops} пересадок
+          </legend>
         </fieldset>
         <div className='flight__there-company'>
-          Рейс выполняет: LOT Polish airlines
+          Рейс выполняет:{' '}
+          {flightsAll[0].flight.legs[0].segments[1].airline.caption}
         </div>
       </div>
       <div className='flight__back'>
