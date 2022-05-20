@@ -13,8 +13,14 @@ export const Flight = () => {
 
   const flightsAll = useSelector(selectAllFlights).flat();
   const loading = useSelector((state) => state.flight.loading);
-  console.log(flightsAll);
   const getDate = (date) => new Date(date).toUTCString();
+  let arrivalDate = getDate(
+    flightsAll[0]?.flight?.legs[0].segments[0].arrivalDate,
+  );
+  let departureDate = getDate(
+    flightsAll[0]?.flight?.legs[0].segments[0].departureDate,
+  );
+  // Работа с датами, посчитать время полета!
   if (loading) return <div>Loading...</div>;
   return (
     <div className='flight'>
@@ -35,13 +41,9 @@ export const Flight = () => {
           {`(${flightsAll[0].flight.legs[0].segments[0].departureAirport.uid})`}
         </div>
         <div className='flight__there-time'>
-          <div className='flight__there-time'>
-            {getDate(flightsAll[0].flight.legs[0].segments[0].arrivalDate)}
-          </div>
+          <div className='flight__there-time'>{arrivalDate}</div>
           <div className='flight__there-time'>14ч 45мин</div>
-          <div className='flight__there-time'>
-            {getDate(flightsAll[0].flight.legs[0].segments[0].departureDate)}
-          </div>
+          <div className='flight__there-time'>{departureDate}</div>
         </div>
         <fieldset className='flight__there-transfer'>
           <legend className='flight__there-transfer-value'>
