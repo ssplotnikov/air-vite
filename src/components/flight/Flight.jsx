@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import './Flight.scss';
+import { FlightList } from './flight/FlightList';
 import { selectAllFlights } from './../../store/flight/flightSlice';
 import { fetchAllFlights } from './../../store/flight/flightSlice';
 //
@@ -33,43 +34,15 @@ export const Flight = () => {
           </div>
         </div>
       </div>
-      <div className='flight__there'>
-        <div className='flight__there-airline'>
-          {flightsAll[0].flight.legs[0].segments[0].arrivalAirport.caption}{' '}
-          {`(${flightsAll[0].flight.legs[0].segments[0].arrivalAirport.uid})`} -{' '}
-          {flightsAll[0].flight.legs[0].segments[0].departureAirport.caption}{' '}
-          {`(${flightsAll[0].flight.legs[0].segments[0].departureAirport.uid})`}
-        </div>
-        <div className='flight__there-time'>
-          <div className='flight__there-time'>{arrivalDate}</div>
-          <div className='flight__there-time'>14ч 45мин</div>
-          <div className='flight__there-time'>{departureDate}</div>
-        </div>
-        <fieldset className='flight__there-transfer'>
-          <legend className='flight__there-transfer-value'>
-            {flightsAll[0].flight.legs[0].segments[0].stops} пересадок
-          </legend>
-        </fieldset>
-        <div className='flight__there-company'>
-          Рейс выполняет:{' '}
-          {flightsAll[0].flight.legs[0].segments[1].airline.caption}
-        </div>
-      </div>
-      <div className='flight__back'>
-        <div className='flight__back-airline'>
-          Москва, ШЕРЕМЕТЬЕВО SVO ЛОНДОН, Лондон, Хитроу LHR
-        </div>
-        <div className='flight__back-time'>
-          <div className='flight__back-time'>20:40 16 авг. вт</div>
-          <div className='flight__back-time'>14ч 45мин</div>
-          <div className='flight__back-time'>17 авг. ср 09:25</div>
-        </div>
-        <fieldset className='flight__back-transfer'>
-          <legend className='flight__back-transfer-value'>1 пересадка</legend>
-        </fieldset>
-        <div className='flight__back-company'>
-          Рейс выполняет: LOT Polish airlines
-        </div>
+      <div className='flight__list'>
+        {flightsAll.map((flight, i) => (
+          <FlightList
+            key={i}
+            flight={flight}
+            arrivalDate={arrivalDate}
+            departureDate={departureDate}
+          />
+        ))}
       </div>
       <div className='flight__select'>ВЫБРАТЬ</div>
     </div>

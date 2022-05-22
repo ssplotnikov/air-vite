@@ -1,43 +1,10 @@
 .flight {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  box-sizing: border-box;
-  min-width: 500px;
-  > div {
-    width: 100%;
-    box-sizing: border-box;
-    max-width: 100%;
-  }
-  &__list {
-    > :last-child {
-      padding: 15px 0;
-      border-top: 2px solid blue;
-    }
-  }
-  &__carrier {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: rgb(117, 161, 255);
-    color: white;
-    padding: 5px;
-    margin-bottom: 10px;
-    &-id {
-    }
-    &-price {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-end;
-    }
-  }
-  &__back {
+  &__there {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    // border-bottom: 2px solid blue;
     margin-top: 10px;
     > div {
       margin-bottom: 10px;
@@ -77,11 +44,7 @@
       padding: 0 10px;
     }
   }
-  &__select {
-    width: 100%;
-    background: rgb(255, 153, 0);
-    color: #fff;
-    text-align: center;
-    padding: 10px;
-  }
+  //   > :last-child {
+  //     border-top: 1px solid blue;
+  //   }
 }
