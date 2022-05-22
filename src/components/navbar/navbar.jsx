@@ -2,15 +2,9 @@ import React, { useState } from 'react';
 import './navbar.scss';
 
 export const NavBar = () => {
-  const [price, setPrice] = useState('');
   const changePrice = (e) => {
     // проверка на числа
     if (e.target.value) setPrice(e.target.value);
-  };
-  const [sort, setSort] = useState('');
-  const changeSort = (e) => {
-    setSort(e.target.value);
-    console.log(sort);
   };
   return (
     <div className='navbar'>
@@ -54,11 +48,11 @@ export const NavBar = () => {
           <div className='navbar__price-container'>
             <div className='navbar__price-text'>
               <div>От</div>
-              <input type='text' value='0' />
+              <input type='text' defaultValue='0' />
             </div>
             <div className='navbar__price-text'>
               <div>До</div>
-              <input type='text' value={price} onChange={changePrice} />
+              <input type='text' defaultValue='10000' />
             </div>
           </div>
         </form>
@@ -68,8 +62,10 @@ export const NavBar = () => {
           <div className='tag'>Авиакомпании</div>
           <div className='navbar__air-container'>
             <div className='navbar__air-checkbox'>
-              <input type='checkbox' value='' />
-              <div>air1</div>
+              <div>
+                air1
+                <input type='checkbox' defaultValue='air1' />
+              </div>
             </div>
             <div className='navbar__air-checkbox'>
               <input type='checkbox' />
