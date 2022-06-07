@@ -1,0 +1,62 @@
+.navbar {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  height: 100%;
+  > div {
+    padding: 15px;
+  }
+  &__sort {
+    display: flex;
+    flex-direction: column;
+    &-radio {
+      display: flex;
+      align-items: center;
+      > div {
+        margin-left: 5px;
+      }
+    }
+  }
+  &__filter {
+    display: flex;
+    flex-direction: column;
+    &-checkbox {
+      display: flex;
+      align-items: center;
+      > div {
+        margin-left: 5px;
+      }
+    }
+  }
+  &__price {
+    display: flex;
+    flex-direction: column;
+    &-text {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin: 10px 0;
+      > div {
+        margin-right: 5px;
+      }
+    }
+  }
+  &__air {
+    display: flex;
+    flex-direction: column;
+    &-checkbox {
+      display: flex;
+      align-items: center;
+      > div {
+        margin-left: 5px;
+      }
+    }
+  }
+}
+
+.tag {
+  font-weight: bold;
+  padding-bottom: 10px;
+}
