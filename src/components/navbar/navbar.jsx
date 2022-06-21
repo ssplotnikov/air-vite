@@ -2,22 +2,10 @@ import React, { useState } from 'react';
 import './navbar.scss';
 
 export const NavBar = () => {
-<<<<<<< HEAD
   const changePrice = (e) => {
     // проверка на числа
     if (e.target.value) setPrice(e.target.value);
   };
-=======
-  const [maxPrice, setMaxPrice] = useState();
-  const changeMaxPrice = (e) => {
-    let reg = /[0-9]/gm;
-    console.log(reg.test(e.target.value));
-    if (reg.test(e.target.value) === true && e.target.value)
-      setMaxPrice(e.target.value);
-    console.log(maxPrice);
-  };
-
->>>>>>> 968fca2bafc05db818cda0611d9133b8db75b610
   return (
     <div className='navbar'>
       <div className='navbar__sort'>
@@ -25,7 +13,6 @@ export const NavBar = () => {
           <div className='tag'>Сортировка</div>
           <div className='navbar__sort-container'>
             <div className='navbar__sort-radio'>
-<<<<<<< HEAD
               <input type='radio' />
               <div> - по возрастанию цены</div>
             </div>
@@ -36,19 +23,6 @@ export const NavBar = () => {
             <div className='navbar__sort-radio'>
               <input type='radio' />
               <div> - по времени в пути</div>
-=======
-              {/* Переделать теги для сортировки */}
-              <input type='radio' id='up' name='sort' value='' />
-              <label for='up'> - по возрастанию цены</label>
-            </div>
-            <div className='navbar__sort-radio'>
-              <input type='radio' id='down' name='sort' value='' />
-              <label for='down'> - по убыванию цены</label>
-            </div>
-            <div className='navbar__sort-radio'>
-              <input type='radio' id='time' name='sort' value='' />
-              <label for='time'> - по времени в пути</label>
->>>>>>> 968fca2bafc05db818cda0611d9133b8db75b610
             </div>
           </div>
         </form>
@@ -78,11 +52,7 @@ export const NavBar = () => {
             </div>
             <div className='navbar__price-text'>
               <div>До</div>
-<<<<<<< HEAD
               <input type='text' defaultValue='10000' />
-=======
-              <input type='text' value={maxPrice} onChange={changeMaxPrice} />
->>>>>>> 968fca2bafc05db818cda0611d9133b8db75b610
             </div>
           </div>
         </form>
