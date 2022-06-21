@@ -2,10 +2,6 @@ import React, { useState } from 'react';
 import './navbar.scss';
 
 export const NavBar = () => {
-  const changePrice = (e) => {
-    // проверка на числа
-    if (e.target.value) setPrice(e.target.value);
-  };
   return (
     <div className='navbar'>
       <div className='navbar__sort'>

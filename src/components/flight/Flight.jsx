@@ -15,10 +15,10 @@ export const Flight = () => {
   const flightsAll = useSelector(selectAllFlights).flat();
   const loading = useSelector((state) => state.flight.loading);
   const getDate = (date) => new Date(date).toUTCString();
-  let arrivalDate = getDate(
+  const arrivalDate = getDate(
     flightsAll[0]?.flight?.legs[0].segments[0].arrivalDate,
   );
-  let departureDate = getDate(
+  const departureDate = getDate(
     flightsAll[0]?.flight?.legs[0].segments[0].departureDate,
   );
   // Работа с датами, посчитать время полета!
