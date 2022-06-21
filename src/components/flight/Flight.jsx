@@ -4,7 +4,11 @@ import './Flight.scss';
 import { FlightList } from './flight/FlightList';
 import { selectAllFlights } from './../../store/flight/flightSlice';
 import { fetchAllFlights } from './../../store/flight/flightSlice';
+<<<<<<< HEAD
 
+=======
+//
+>>>>>>> 968fca2bafc05db818cda0611d9133b8db75b610
 export const Flight = () => {
   const dispatch = useDispatch();
 

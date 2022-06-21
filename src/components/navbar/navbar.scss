@@ -11,8 +11,14 @@
   &__sort {
     display: flex;
     flex-direction: column;
+<<<<<<< HEAD
     &-radio {
       display: flex;
+=======
+    &-container{
+      display: flex;
+      flex-direction: column;
+>>>>>>> 968fca2bafc05db818cda0611d9133b8db75b610
       align-items: center;
       > div {
         margin-left: 5px;
