@@ -1,11 +1,17 @@
-// import { createAsyncThunk } from '@reduxjs/toolkit';
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import { FlightsAPI } from './../../api/flightAPI';
 
-// import { FlightsAPI } from '../../api/flightAPI';
-
-// export const asyncFetchAllFlights = createAsyncThunk(
-//   'flights/fetchAllFlights',
-//   async () => {
-//     const response = await FlightsAPI.fetchAllFlights();
-//     return response;
-//   },
-// );
+export const fetchAllFlights = createAsyncThunk(
+  'flights/fetchAllFlights',
+  async (_, { rejectWithValue }) => {
+    try {
+      const response = await FlightsAPI.fetchAll();
+      if (response.status !== 200) {
+        throw new Error('Server Error!');
+      }
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
+  },
+);

@@ -1,50 +1,35 @@
-import {
-  createSlice,
-  createEntityAdapter,
-  createAsyncThunk,
-} from '@reduxjs/toolkit';
-import { FlightsAPI } from './../../api/flightAPI';
+import { createSlice } from '@reduxjs/toolkit';
+import { fetchAllFlights } from './actionsFlight';
 
-export const fetchAllFlights = createAsyncThunk(
-  'flights/fetchAllFlights',
-  async () => {
-    const response = await FlightsAPI.fetchAll();
-    return response;
-  },
-);
-export const flightsAdapter = createEntityAdapter();
-
-const initialState = flightsAdapter.getInitialState({
+const initialState = {
+  data: [],
   loading: true,
   error: null,
-});
+};
 
 export const flightSlice = createSlice({
   name: 'flight',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(fetchAllFlights.pending, (state, action) => {
+    builder.addCase(fetchAllFlights.pending, (state) => {
       state.loading = true;
     });
     builder.addCase(fetchAllFlights.fulfilled, (state, action) => {
-      flightsAdapter.addOne(state, action.payload);
+      state.data = action.payload;
       state.loading = false;
     });
     builder.addCase(fetchAllFlights.rejected, (state, action) => {
-      state.loading = false;
-      state.error = action.payload;
+      if (action.payload) {
+        state.error = action.payload;
+        state.loading = false;
+      } else {
+        state.error = action.error.message;
+        state.loading = false;
+      }
     });
   },
 });
 
 const reducer = flightSlice.reducer;
 export default reducer;
-
-export const {
-  selectById: selectFlightById,
-  selectIds: selectFlightIds,
-  selectEntities: selectFlightEntities,
-  selectAll: selectAllFlights,
-  selectTotal: selectTotalFlights,
-} = flightsAdapter.getSelectors((state) => state.flight);
