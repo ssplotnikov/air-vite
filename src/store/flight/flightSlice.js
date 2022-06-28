@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchAllFlights } from './actionsFlight';
+import fetchAllFlights from './actionsFlight';
 
 const initialState = {
   data: [],
@@ -31,5 +31,5 @@ export const flightSlice = createSlice({
   },
 });
 
-const reducer = flightSlice.reducer;
+const { reducer } = flightSlice;
 export default reducer;

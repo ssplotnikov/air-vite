@@ -1,6 +1,6 @@
 import React from 'react';
-import { Flight } from '../../components/flight/Flight';
+import Flight from '../../components/flight/Flight';
 
-export const Main = () => {
+export default function Main() {
   return <Flight />;
-};
+}

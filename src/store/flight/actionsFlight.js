@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { FlightsAPI } from './../../api/flightAPI';
+import { FlightsAPI } from '../../api/flightAPI';
 
-export const fetchAllFlights = createAsyncThunk(
+const fetchAllFlights = createAsyncThunk(
   'flights/fetchAllFlights',
   async (_, { rejectWithValue }) => {
     try {
@@ -15,3 +15,5 @@ export const fetchAllFlights = createAsyncThunk(
     }
   },
 );
+
+export default fetchAllFlights;
