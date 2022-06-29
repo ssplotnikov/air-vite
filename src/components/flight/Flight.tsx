@@ -1,16 +1,14 @@
 import React, { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks/useRedux';
 import './Flight.scss';
-// import { FlightList } from './flight/FlightList';
-// import { selectAllFlights } from './../../store/flight/flightSlice';
-import fetchAllFlights from '../../store/flight/actionsFlight';
+import { fetchAllFlights } from '../../store/flight/actionsFlight';
 
 const Flight: React.FC = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(fetchAllFlights());
-  }, [dispatch]);
+  }, []);
 
   // const flightsAll = useSelector(selectAllFlights).flat();
   const loading = useAppSelector((state) => state.flight.loading);

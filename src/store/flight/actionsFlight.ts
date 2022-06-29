@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { FlightsAPI } from '../../api/flightAPI';
 
-const fetchAllFlights = createAsyncThunk(
+export const fetchAllFlights = createAsyncThunk(
   'flights/fetchAllFlights',
   async (_, { rejectWithValue }) => {
     try {
@@ -16,4 +16,17 @@ const fetchAllFlights = createAsyncThunk(
   },
 );
 
-export default fetchAllFlights;
+export const fetchBestPrices = createAsyncThunk(
+  'flights/fetchBestPrices',
+  async (_, { rejectWithValue }) => {
+    try {
+      const response = await FlightsAPI.fetchBestPrices();
+      if (response.status !== 200) {
+        throw new Error('Server Error!');
+      }
+      return response.data
+    } catch (error) {
+      return rejectWithValue(error.response.data)
+    }
+  },
+)

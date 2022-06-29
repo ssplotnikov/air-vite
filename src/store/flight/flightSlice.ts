@@ -1,7 +1,14 @@
-import { createSlice } from '@reduxjs/toolkit';
-import fetchAllFlights from './actionsFlight';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { FlightElement } from '../../data/flightsTypes';
+import { fetchAllFlights } from './actionsFlight';
 
-const initialState = {
+interface typeInitialState {
+  data: FlightElement[] | [];
+  loading: boolean;
+  error: null | string | undefined | unknown;
+}
+
+const initialState: typeInitialState = {
   data: [],
   loading: true,
   error: null,
@@ -15,10 +22,13 @@ export const flightSlice = createSlice({
     builder.addCase(fetchAllFlights.pending, (state) => {
       state.loading = true;
     });
-    builder.addCase(fetchAllFlights.fulfilled, (state, action) => {
-      state.data = action.payload;
-      state.loading = false;
-    });
+    builder.addCase(
+      fetchAllFlights.fulfilled,
+      (state, action: PayloadAction<FlightElement[]>) => {
+        state.data = action.payload;
+        state.loading = false;
+      },
+    );
     builder.addCase(fetchAllFlights.rejected, (state, action) => {
       if (action.payload) {
         state.error = action.payload;

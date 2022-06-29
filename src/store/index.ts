@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
+import { bestPriceSlice } from './bestPrices/bestPriceSlice';
 import { flightSlice } from './flight/flightSlice';
 
 export const store = configureStore({
   reducer: {
     flight: flightSlice.reducer,
+    bestPrices: bestPriceSlice.reducer
   },
 });
 
