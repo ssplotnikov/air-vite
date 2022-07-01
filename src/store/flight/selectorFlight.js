@@ -1,3 +1,4 @@
-export const selectorFlightsCaption = (state) => {
-	
-}
+export const selectFlightCaption = async (state) => {
+  const data = await state.flight;
+  return data;
+};
