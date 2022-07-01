@@ -1,22 +1,23 @@
-import { useState, useMemo } from 'react';
-import { shallowEqual } from 'react-redux';
+import { useState, useMemo } from 'react'
+import { shallowEqual } from 'react-redux'
 
 export const useFilterFlight = () => {
-  const [flight, setFlight] = useState([]);
+  const [flight, setFlight] = useState([])
 
   const loadFlights = useMemo(() => {
-    let prevFilters;
+    let prevFilters
     return async (filters) => {
       if (shallowEqual(filters, prevFilters)) {
-        return;
+        return
       }
-      prevFilters = filters;
-      const data = await API.loadFlights(filters);
-      setFlight(data);
-    };
-  }, []);
+
+      prevFilters = filters
+      const data = await API.loadFlights(filters)
+      setFlight(data)
+    }
+  }, [])
   return {
     flight,
     loadFlights,
-  };
-};
+  }
+}
