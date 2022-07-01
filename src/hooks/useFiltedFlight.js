@@ -10,7 +10,6 @@ export const useFilterFlight = () => {
       if (shallowEqual(filters, prevFilters)) {
         return
       }
-
       prevFilters = filters
       const data = await API.loadFlights(filters)
       setFlight(data)
