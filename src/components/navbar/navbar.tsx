@@ -12,9 +12,9 @@ const NavBar: React.FC = () => {
   const data = useAppSelector(getBestPrices);
   console.log('bestPrices:', data);
 
-  useEffect(() => {
-    dispatch(fetchBestPrices());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(fetchBestPrices());
+  // }, []);
 
   return (
     <div className='navbar'>
