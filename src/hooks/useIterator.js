@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useCallback, useMemo } from 'react'
 
 export const useIterator = (items = [], initialValue = 0) => {
@@ -15,21 +14,3 @@ export const useIterator = (items = [], initialValue = 0) => {
   return [item || items[0], prev, next]
 }
 // Разобраться как работает.
-=======
-import React, { useCallback, useMemo } from 'react';
-
-export const useIterator = (items = [], initialValue = 0) => {
-  const [i, setIndex] = useState(initialValue);
-  const prev = useCallback(() => {
-    if (i === 0) return setIndex(items.length - 1);
-    setIndex(i - 1);
-  }, [i]);
-  const next = useCallback(() => {
-    if (i === items.length - 1) return setIndex(0);
-    setIndex(i + 1);
-  }, [i]);
-  const item = useMemo(() => items[i], [i]);
-  return [item || items[0], prev, next];
-};
-// Разобраться как работает.
->>>>>>> f1adbe04d3e95c8b38ac7259fecacec358058d6a
