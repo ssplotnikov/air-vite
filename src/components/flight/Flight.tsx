@@ -24,12 +24,12 @@ const Flight: React.FC = () => {
   // );
   if (loading) return <div>Loading...</div>;
   return (
-    <div className="flight">
-      <div className="flight__carrier">
-        <div className="flight__carrier-id">AF</div>
-        <div className="flight__carrier-price">
-          <div className="">21000 ₽</div>
-          <div className="flight__carrier-price-person">
+    <div className='flight'>
+      <div className='flight__carrier'>
+        <div className='flight__carrier-id'>AF</div>
+        <div className='flight__carrier-price'>
+          <div className=''>21000 ₽</div>
+          <div className='flight__carrier-price-person'>
             Стоимость для одного взрослого пассажира
           </div>
         </div>

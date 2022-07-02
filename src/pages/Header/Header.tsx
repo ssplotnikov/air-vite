@@ -4,7 +4,7 @@ import NavBar from '../../components/navbar/navbar';
 import './Header.scss';
 
 const Header: React.FC = () => (
-  <header className="header">
+  <header className='header'>
     <NavBar />
   </header>
 );

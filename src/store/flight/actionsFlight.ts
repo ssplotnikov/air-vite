@@ -24,9 +24,9 @@ export const fetchBestPrices = createAsyncThunk(
       if (response.status !== 200) {
         throw new Error('Server Error!');
       }
-      return response.data
+      return response.data;
     } catch (error) {
-      return rejectWithValue(error.response.data)
+      return rejectWithValue(error.response.data);
     }
   },
-)
+);
