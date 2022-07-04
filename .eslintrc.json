@@ -7,7 +7,10 @@
         "plugin:react/recommended",
         "airbnb",
         "react-hooks",
-        "plugin:@typescript-eslint/recommended"
+        "plugin:@typescript-eslint/recommended",
+        "plugin:prettier/recommended",
+        "prettier",
+        "prettier/@typescript-eslint"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -19,7 +22,8 @@
     },
     "plugins": [
         "react",
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "prettier"
     ],
     "settings": {
         "import/resolver": {
@@ -27,6 +31,7 @@
         }
     },
     "rules": {
+        "prettier/prettier": "error",
         "no-console": "warn",
         "import/prefer-default-export": "off",
         "react/prop-types": "off",

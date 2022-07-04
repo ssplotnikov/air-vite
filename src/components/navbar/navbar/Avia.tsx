@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 export const Avia: React.FC = () => {
   return (
@@ -17,5 +17,5 @@ export const Avia: React.FC = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
