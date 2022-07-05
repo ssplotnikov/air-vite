@@ -2,8 +2,8 @@ import React from 'react'
 import { useInputNumbers } from '../../../hooks/useInputNumbers'
 
 export const Price: React.FC = () => {
-  const minPrice = useInputNumbers('')
-  const maxPrice = useInputNumbers('')
+  const minPrice = useInputNumbers()
+  const maxPrice = useInputNumbers()
 
   return (
     <div className='navbar__price'>
