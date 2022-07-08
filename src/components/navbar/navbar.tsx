@@ -5,17 +5,9 @@ import { fetchBestPrices } from '../../store/flight/actionsFlight'
 import { Avia, Filter, Price, Sort } from './navbar/index'
 
 import './navbar.scss'
+import Basic from './form'
 
 const NavBar: React.FC = () => {
-  // const dispatch = useAppDispatch()
-
-  // useEffect(() => {
-  //   dispatch(fetchBestPrices())
-  // }, [])
-
-  // const data = useAppSelector((state) => state.bestPrices.data)
-  // console.log(data)
-
   return (
     <form>
       <div className='navbar'>
@@ -23,6 +15,8 @@ const NavBar: React.FC = () => {
         <Filter />
         <Price />
         <Avia />
+        <Basic />
+        <div className='navbar__form-btn'>Search</div>
       </div>
     </form>
   )
