@@ -5,9 +5,11 @@ import { fetchBestPrices } from '../../store/flight/actionsFlight'
 import { Avia, Filter, Price, Sort } from './navbar/index'
 
 import './navbar.scss'
-import Basic from './form'
+import { useGetFlightByCaptionQuery } from '../../services/flightServices'
 
 const NavBar: React.FC = () => {
+  const { data, error, isLoading } = useGetFlightByCaptionQuery('KLM')
+  console.log('RTKdata:', data)
   return (
     <form>
       <div className='navbar'>
@@ -15,7 +17,6 @@ const NavBar: React.FC = () => {
         <Filter />
         <Price />
         <Avia />
-        <Basic />
         <div className='navbar__form-btn'>Search</div>
       </div>
     </form>
