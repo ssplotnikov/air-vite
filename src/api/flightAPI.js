@@ -11,4 +11,8 @@ export const FlightsAPI = {
     const response = await axios.get(`${BASE_URL}bestPrices`);
     return response;
   },
+  async fetchFilter(page = 1,limit = 10, minPrice = 0, maxPrice, airline, sortOrderPrice  ) {
+    const response = await axios.get(`${BASE_URL}flights?page=${page}&limit=${limit}&flight.carrier.caption=${airline}&flight.price.total.amount_gte=${minPrice}&flight.price.total.amount_lte=${maxPrice}&_sort=flight.price.total.amount&_order=${sortOrderPrice}`)
+    return response;
+  }
 };
