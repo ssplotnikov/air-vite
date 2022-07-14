@@ -7,14 +7,14 @@ interface typeInitialState {
 
 const initialState: typeInitialState = {
   filters: {
-    airline: '',
+    airline: [],
     price: [],
     stops: [],
     sortPrice: '',
     sortTime: '',
   },
 }
-export const filterSlice = createSlice({
+export const filtersSlice = createSlice({
   name: 'filter',
   initialState,
   reducers: {
@@ -25,7 +25,10 @@ export const filterSlice = createSlice({
       state.filters.stops = action.payload
     },
     setAirline: (state, action) => {
-      state.filters.airline = action.payload
+      state.filters.airline?.push(action.payload)
+    },
+    deleteAirline: (state, action) => {
+      state.filters.airline?.splice(state.filters.airline.indexOf(action.payload), 1)
     },
     setSortPrice: (state, action) => {
       state.filters.sortPrice = action.payload
@@ -39,6 +42,5 @@ export const filterSlice = createSlice({
   },
 })
 
-const { reducer } = filterSlice
-
-export default reducer
+export const { setPrice, setStops, setAirline, setSortPrice, deleteAirline } = filtersSlice.actions
+export default filtersSlice.reducer
