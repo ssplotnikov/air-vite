@@ -133,7 +133,7 @@ export interface Segment {
 }
 
 export interface Filters {
-  airline?: string
+  airline?: string[]
   price?: number[] | string[]
   stops?: number[] | string[]
   sortPrice?: string
