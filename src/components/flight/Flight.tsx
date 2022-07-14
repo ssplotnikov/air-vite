@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react'
-import { useAppDispatch, useAppSelector } from '../../hooks/useRedux'
+// import { useAppDispatch, useAppSelector } from '../../hooks/useRedux'
 import './Flight.scss'
-import { fetchAllFlights } from '../../store/flight/actionsFlight'
+// import { fetchAllFlights } from '../../store/flight/actionsFlight'
 // import { fetchAllFilterFlights } from '../../store/filter/actionFilter'
 
 const Flight: React.FC = () => {
-  const dispatch = useAppDispatch()
-  const data = useAppSelector((state) => state.flight.data)
-  const loading = useAppSelector((state) => state.flight.loading)
-  console.log('flight: ', data)
+  // const dispatch = useAppDispatch()
+  // const data = useAppSelector((state) => state.flight.data)
+  // const loading = useAppSelector((state) => state.flight.loading)
+  // console.log('flight: ', data)
 
   // const filter = useAppSelector((state) => state.filter.data)
   // console.log(filter)

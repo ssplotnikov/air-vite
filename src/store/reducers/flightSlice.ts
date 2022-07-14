@@ -1,10 +1,11 @@
-// import { createSlice } from '@reduxjs/toolkit'
-// import { fetchAllFilterFlights } from './actionFilter'
+// import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+// import { FlightElement } from '../../types/flightsTypes'
+// // import { fetchAllFlights } from '../flight/actionsFlight'
 
 // interface typeInitialState {
-//   data: undefined | Array<string>
+//   data: FlightElement[] | []
 //   loading: boolean
-//   error: string | undefined | null | unknown
+//   error: null | string | undefined | unknown
 // }
 
 // const initialState: typeInitialState = {
@@ -13,19 +14,19 @@
 //   error: null,
 // }
 
-// export const filterSlice = createSlice({
-//   name: 'filter',
+// export const flightSlice = createSlice({
+//   name: 'flight',
 //   initialState,
 //   reducers: {},
 //   extraReducers: (builder) => {
-//     builder.addCase(fetchAllFilterFlights.pending, (state) => {
+//     builder.addCase(fetchAllFlights.pending, (state) => {
 //       state.loading = true
 //     })
-//     builder.addCase(fetchAllFilterFlights.fulfilled, (state, action) => {
+//     builder.addCase(fetchAllFlights.fulfilled, (state, action: PayloadAction<FlightElement[]>) => {
 //       state.data = action.payload
 //       state.loading = false
 //     })
-//     builder.addCase(fetchAllFilterFlights.rejected, (state, action) => {
+//     builder.addCase(fetchAllFlights.rejected, (state, action) => {
 //       if (action.payload) {
 //         state.error = action.payload
 //         state.loading = false
@@ -37,6 +38,5 @@
 //   },
 // })
 
-// const { reducer } = filterSlice
-
+// const { reducer } = flightSlice
 // export default reducer

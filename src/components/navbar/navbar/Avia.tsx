@@ -1,20 +1,17 @@
 import React from 'react'
+import { Caption } from '../../../types/flightsTypes'
 
 export const Avia: React.FC = () => {
   return (
     <div className='navbar__air'>
       <div className='tag'>Авиакомпании</div>
       <div className='navbar__air-container'>
-        <div className='navbar__air-checkbox'>
-          <div>
-            air1
-            <input type='checkbox' defaultValue='air1' />
+        {Object.keys(Caption).map((v, i) => (
+          <div className='navbar__air-checkbox' key={i}>
+            <input type='checkbox' value={v} />
+            <div>{v}</div>
           </div>
-        </div>
-        <div className='navbar__air-checkbox'>
-          <input type='checkbox' />
-          <div>air2</div>
-        </div>
+        ))}
       </div>
     </div>
   )

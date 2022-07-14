@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../../hooks/useRedux'
-import { fetchBestPrices } from '../../store/flight/actionsFlight'
 
 import { Avia, Filter, Price, Sort } from './navbar/index'
 
