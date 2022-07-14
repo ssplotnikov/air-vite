@@ -1,26 +1,26 @@
 export interface Flights {
-  flights: FlightElement[];
-  bestPrices: BestPrices;
+  flights: FlightElement[]
+  bestPrices: BestPrices
 }
 
 export interface BestPrices {
-  ONE_CONNECTION: Direct;
-  DIRECT: Direct;
+  ONE_CONNECTION: Direct
+  DIRECT: Direct
 }
 
 export interface Direct {
-  bestFlights: BestFlight[];
+  bestFlights: BestFlight[]
 }
 
 export interface BestFlight {
-  carrier: Carrier;
-  price: TotalClass;
+  carrier: Carrier
+  price: TotalClass
 }
 
 export interface Carrier {
-  uid: AirlineCode;
-  caption: Caption;
-  airlineCode: AirlineCode;
+  uid: AirlineCode
+  caption: Caption
+  airlineCode: AirlineCode
 }
 
 export enum AirlineCode {
@@ -59,9 +59,9 @@ export enum Caption {
 }
 
 export interface TotalClass {
-  amount: string;
-  currency: Currency;
-  currencyCode: PurpleCurrencyCode;
+  amount: string
+  currency: Currency
+  currencyCode: PurpleCurrencyCode
 }
 
 export enum Currency {
@@ -73,63 +73,71 @@ export enum PurpleCurrencyCode {
 }
 
 export interface FlightElement {
-  hasExtendedFare: boolean;
-  flight: FlightFlight;
-  flightToken: string;
+  hasExtendedFare: boolean
+  flight: FlightFlight
+  flightToken: string
 }
 
 export interface FlightFlight {
-  carrier: Carrier;
-  price: FlightPrice;
-  servicesStatuses: ServicesStatuses;
-  legs: Leg[];
-  exchange: Exchange;
-  isTripartiteContractDiscountApplied: boolean;
-  international: boolean;
-  seats: Seat[];
-  refund: Refund;
-  airlineAlliance?: AirlineAlliance;
+  carrier: Carrier
+  price: FlightPrice
+  servicesStatuses: ServicesStatuses
+  legs: Leg[]
+  exchange: Exchange
+  isTripartiteContractDiscountApplied: boolean
+  international: boolean
+  seats: Seat[]
+  refund: Refund
+  airlineAlliance?: AirlineAlliance
 }
 
 export interface AirlineAlliance {
-  uid: string;
-  caption: string;
+  uid: string
+  caption: string
 }
 
 export interface Exchange {
-  ADULT: ExchangeADULT;
+  ADULT: ExchangeADULT
 }
 
 export interface ExchangeADULT {
-  exchangeableBeforeDeparture: boolean;
-  exchangeAfterDeparture: TotalClass;
-  exchangeBeforeDeparture: TotalClass;
-  exchangeableAfterDeparture: boolean;
+  exchangeableBeforeDeparture: boolean
+  exchangeAfterDeparture: TotalClass
+  exchangeBeforeDeparture: TotalClass
+  exchangeableAfterDeparture: boolean
 }
 
 export interface Leg {
-  duration: number;
-  segments: Segment[];
+  duration: number
+  segments: Segment[]
 }
 
 export interface Segment {
-  classOfServiceCode: ClassOfServiceCode;
-  classOfService: AirlineAlliance;
-  departureAirport: AirlineAlliance;
-  departureCity?: AirlineAlliance;
-  aircraft: AirlineAlliance;
-  travelDuration: number;
-  arrivalCity?: AirlineAlliance;
-  arrivalDate: string;
-  flightNumber: string;
-  techStopInfos: any[];
-  departureDate: string;
-  stops: number;
-  servicesDetails: ServicesDetails;
-  airline: Carrier;
-  starting: boolean;
-  arrivalAirport: AirlineAlliance;
-  operatingAirline?: Carrier;
+  classOfServiceCode: ClassOfServiceCode
+  classOfService: AirlineAlliance
+  departureAirport: AirlineAlliance
+  departureCity?: AirlineAlliance
+  aircraft: AirlineAlliance
+  travelDuration: number
+  arrivalCity?: AirlineAlliance
+  arrivalDate: string
+  flightNumber: string
+  techStopInfos: any[]
+  departureDate: string
+  stops: number
+  servicesDetails: ServicesDetails
+  airline: Carrier
+  starting: boolean
+  arrivalAirport: AirlineAlliance
+  operatingAirline?: Carrier
+}
+
+export interface Filters {
+  airline?: string
+  price?: number[] | string[]
+  stops?: number[] | string[]
+  sortPrice?: string
+  sortTime?: string
 }
 
 export enum ClassOfServiceCode {
@@ -154,16 +162,16 @@ export enum ClassOfServiceCode {
 }
 
 export interface ServicesDetails {
-  freeCabinLuggage: Luggage;
-  paidCabinLuggage: Luggage;
-  tariffName?: TariffName;
-  fareBasis: FareBasis;
-  freeLuggage: FreeLuggage;
-  paidLuggage: Luggage;
+  freeCabinLuggage: Luggage
+  paidCabinLuggage: Luggage
+  tariffName?: TariffName
+  fareBasis: FareBasis
+  freeLuggage: FreeLuggage
+  paidLuggage: Luggage
 }
 
 export interface FareBasis {
-  ADULT: ADULTEnum;
+  ADULT: ADULTEnum
 }
 
 export enum ADULTEnum {
@@ -203,13 +211,13 @@ export enum ADULTEnum {
 export interface Luggage {}
 
 export interface FreeLuggage {
-  ADULT: FreeLuggageADULT;
+  ADULT: FreeLuggageADULT
 }
 
 export interface FreeLuggageADULT {
-  pieces?: number;
-  nil: boolean;
-  unit?: Unit;
+  pieces?: number
+  nil: boolean
+  unit?: Unit
 }
 
 export enum Unit {
@@ -236,29 +244,29 @@ export enum TariffName {
 }
 
 export interface FlightPrice {
-  total: TotalClass;
-  totalFeeAndTaxes: TotalClass;
-  rates: Rates;
-  passengerPrices: PassengerPrice[];
+  total: TotalClass
+  totalFeeAndTaxes: TotalClass
+  rates: Rates
+  passengerPrices: PassengerPrice[]
 }
 
 export interface PassengerPrice {
-  total: TotalClass;
-  passengerType: AirlineAlliance;
-  singlePassengerTotal: TotalClass;
-  passengerCount: number;
-  tariff: TotalClass;
-  feeAndTaxes: TotalClass;
+  total: TotalClass
+  passengerType: AirlineAlliance
+  singlePassengerTotal: TotalClass
+  passengerCount: number
+  tariff: TotalClass
+  feeAndTaxes: TotalClass
 }
 
 export interface Rates {
-  totalUsd: Total;
-  totalEur: Total;
+  totalUsd: Total
+  totalEur: Total
 }
 
 export interface Total {
-  amount: string;
-  currencyCode: TotalEurCurrencyCode;
+  amount: string
+  currencyCode: TotalEurCurrencyCode
 }
 
 export enum TotalEurCurrencyCode {
@@ -267,23 +275,23 @@ export enum TotalEurCurrencyCode {
 }
 
 export interface Refund {
-  ADULT: RefundADULT;
+  ADULT: RefundADULT
 }
 
 export interface RefundADULT {
-  refundableBeforeDeparture: boolean;
-  refundableAfterDeparture: boolean;
-  refundBeforeDeparture?: TotalClass;
-  refundAfterDeparture?: TotalClass;
+  refundableBeforeDeparture: boolean
+  refundableAfterDeparture: boolean
+  refundBeforeDeparture?: TotalClass
+  refundAfterDeparture?: TotalClass
 }
 
 export interface Seat {
-  count: number;
-  type: AirlineAlliance;
+  count: number
+  type: AirlineAlliance
 }
 
 export interface ServicesStatuses {
-  baggage: AirlineAlliance;
-  exchange: AirlineAlliance;
-  refund: AirlineAlliance;
+  baggage: AirlineAlliance
+  exchange: AirlineAlliance
+  refund: AirlineAlliance
 }

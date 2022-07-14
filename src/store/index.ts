@@ -1,14 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { setupListeners } from '@reduxjs/toolkit/query'
 import { flightApi } from '../services/flightServices'
-import { bestPriceSlice } from './bestPrices/bestPriceSlice'
+// import { bestPriceSlice } from './bestPrices/bestPriceSlice'
 // import { filterSlice } from './filter/flitersSlice'
-import { flightSlice } from './flight/flightSlice'
+// import { flightSlice } from './flight/flightSlice'
 
 export const store = configureStore({
   reducer: {
-    flight: flightSlice.reducer,
-    bestPrices: bestPriceSlice.reducer,
+    // flight: flightSlice.reducer,
+    // bestPrices: bestPriceSlice.reducer,
     // filter: filterSlice.reducer,
     [flightApi.reducerPath]: flightApi.reducer,
   },
