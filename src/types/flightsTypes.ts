@@ -134,10 +134,9 @@ export interface Segment {
 
 export interface Filters {
   airline?: string[]
-  price?: number[] | string[]
+  minPrice: string
+  maxPrice: string
   stops?: number[] | string[]
-  sortPrice?: string
-  sortTime?: string
 }
 
 export enum ClassOfServiceCode {

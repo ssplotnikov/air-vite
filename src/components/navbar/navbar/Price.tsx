@@ -1,10 +1,16 @@
 import React from 'react'
-import { useInputNumbers } from '../../../hooks/useInputNumbers'
 
-export const Price: React.FC = () => {
-  const minPrice = useInputNumbers()
-  const maxPrice = useInputNumbers()
+// export interface PriceProps {
+//   minPrice: () => void
+//   maxPrice: () => void
+// }
 
+export const Price: React.FC<any> = ({ minPrice, maxPrice }) => {
+  // useEffect(() => {
+  //   if (minPrice.value && minPrice.value >= maxPrice.value) {
+  //     maxPrice.setValue(minPrice.value + 1)
+  //   }
+  // }, [minPrice.value, maxPrice.value])
   return (
     <div className='navbar__price'>
       <div className='tag'>Цена</div>

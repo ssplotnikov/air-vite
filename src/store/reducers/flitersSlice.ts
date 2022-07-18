@@ -3,13 +3,20 @@ import { Filters } from '../../types/flightsTypes'
 
 interface typeInitialState {
   filters: Filters
+  sort: {
+    sortPrice?: string
+    sortTime?: string
+  }
 }
 
 const initialState: typeInitialState = {
   filters: {
     airline: [],
-    price: [],
+    minPrice: '',
+    maxPrice: '',
     stops: [],
+  },
+  sort: {
     sortPrice: '',
     sortTime: '',
   },
@@ -18,8 +25,11 @@ export const filtersSlice = createSlice({
   name: 'filter',
   initialState,
   reducers: {
+    setFilters: (state, action) => {
+      state.filters = action.payload
+    },
     setPrice: (state, action) => {
-      state.filters.price = action.payload
+      // state.filters.price?.push(action.payload)
     },
     setStops: (state, action) => {
       state.filters.stops = action.payload
@@ -31,16 +41,24 @@ export const filtersSlice = createSlice({
       state.filters.airline?.splice(state.filters.airline.indexOf(action.payload), 1)
     },
     setSortPrice: (state, action) => {
-      state.filters.sortPrice = action.payload
+      state.sort.sortPrice = action.payload
     },
     setSortTime: (state, action) => {
-      state.filters.sortTime = action.payload
+      state.sort.sortTime = action.payload
     },
-    resetFilters: (state, action) => {
+    resetFilters: (state) => {
       state.filters = initialState.filters
     },
   },
 })
 
-export const { setPrice, setStops, setAirline, setSortPrice, deleteAirline } = filtersSlice.actions
-export default filtersSlice.reducer
+export const {
+  setFilters,
+  setPrice,
+  setStops,
+  setAirline,
+  setSortPrice,
+  deleteAirline,
+  resetFilters,
+} = filtersSlice.actions
+export default filtersSlice
