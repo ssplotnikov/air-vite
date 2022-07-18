@@ -1,22 +1,23 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useAppDispatch, useAppSelector } from '../../hooks/useRedux'
 
-import { Avia, Filter, Price, Sort } from './navbar/index'
+import { useGetFlightByCaptionQuery } from '../../services/flightServices'
+import { Form, Sort } from './navbar/index'
 
 import './navbar.scss'
-import { useGetFlightByCaptionQuery } from '../../services/flightServices'
 
 const NavBar: React.FC = () => {
-  const { data, error, isLoading } = useGetFlightByCaptionQuery('KLM')
+  const filters = useAppSelector((state) => state.filter.filters)
+  console.log(filters)
+
+  const { data, error, isLoading } = useGetFlightByCaptionQuery(filters)
   console.log('RTKdata:', data)
+
   return (
     <form>
       <div className='navbar'>
         <Sort />
-        <Filter />
-        <Price />
-        <Avia />
-        <div className='navbar__form-btn'>Search</div>
+        <Form />
       </div>
     </form>
   )

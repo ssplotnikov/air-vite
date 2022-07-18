@@ -7,7 +7,6 @@ export const useInputNumbers = (initialValue: number | string = '') => {
     Number.isNaN(parseInt(e.target.value))
       ? (finalValue = 0)
       : (finalValue = parseInt(e.target.value))
-    console.log(value)
 
     return setValue(finalValue)
   }
