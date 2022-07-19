@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useEffect } from 'react'
+import React, { ChangeEvent, memo, useEffect } from 'react'
 import { useInputNumbers } from '../../../hooks/useInputNumbers'
 import { useAppDispatch } from '../../../hooks/useRedux'
 import { resetFilters, setFilters } from '../../../store/reducers/flitersSlice'
@@ -6,18 +6,10 @@ import { Avia } from './Avia'
 import { Filter } from './Filter'
 import { Price } from './Price'
 
-let updateFilterList: any = {
-  airline: [],
-  minPrice: '',
-  maxPrice: '',
-  stops: [],
-}
-export const Form: React.FC = () => {
+export const Form: React.FC<any> = memo(({ updateFilterList }) => {
   const dispatch = useAppDispatch()
-
   const handleFilters = () => {
     dispatch(setFilters(updateFilterList))
-    console.log('updateFilterList after submitting', updateFilterList)
   }
   const minPrice = useInputNumbers()
   const maxPrice = useInputNumbers()
@@ -25,10 +17,8 @@ export const Form: React.FC = () => {
   const onChangeAvias = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.checked) {
       updateFilterList.airline = [...updateFilterList.airline, e.target.value]
-      console.log('Добавил: ', updateFilterList.airline)
     } else {
       updateFilterList.airline.splice(updateFilterList.airline.indexOf(e.target.value), 1)
-      console.log('Удалил: ', updateFilterList.airline)
     }
   }
   useEffect(() => {
@@ -49,4 +39,4 @@ export const Form: React.FC = () => {
       </div> */}
     </>
   )
-}
+})
