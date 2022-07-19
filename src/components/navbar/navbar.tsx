@@ -7,17 +7,21 @@ import { Form, Sort } from './navbar/index'
 import './navbar.scss'
 
 const NavBar: React.FC = () => {
+  let updateFilterList: any = {
+    airline: [],
+    minPrice: '',
+    maxPrice: '',
+    stops: [],
+  }
   const filters = useAppSelector((state) => state.filter.filters)
-  console.log(filters)
 
   const { data, error, isLoading } = useGetFlightByCaptionQuery(filters)
-  console.log('RTKdata:', data)
 
   return (
     <form>
       <div className='navbar'>
         <Sort />
-        <Form />
+        <Form updateFilterList={updateFilterList} />
       </div>
     </form>
   )

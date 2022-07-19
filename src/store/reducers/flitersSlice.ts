@@ -11,7 +11,7 @@ interface typeInitialState {
 
 const initialState: typeInitialState = {
   filters: {
-    airline: [],
+    airline: {},
     minPrice: '',
     maxPrice: '',
     stops: [],
