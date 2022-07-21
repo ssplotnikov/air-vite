@@ -1,30 +1,18 @@
-import React, { useEffect } from 'react'
-// import { useAppDispatch, useAppSelector } from '../../hooks/useRedux'
+import React from 'react'
+import { useAppSelector } from '../../hooks/useRedux'
+import { useGetFlightByCaptionQuery } from '../../services/flightServices'
 import './Flight.scss'
-// import { fetchAllFlights } from '../../store/flight/actionsFlight'
-// import { fetchAllFilterFlights } from '../../store/filter/actionFilter'
+import { FlightList } from './flight/FlightList'
 
 const Flight: React.FC = () => {
-  // const dispatch = useAppDispatch()
-  // const data = useAppSelector((state) => state.flight.data)
-  // const loading = useAppSelector((state) => state.flight.loading)
-  // console.log('flight: ', data)
+  const filters = useAppSelector((state) => state.filter.filters)
 
-  // const filter = useAppSelector((state) => state.filter.data)
-  // console.log(filter)
+  const { data, error, isLoading } = useGetFlightByCaptionQuery(filters)
+  console.log(data)
 
-  // useEffect(() => {
-  //   dispatch(fetchAllFlights())
-  // }, [])
+  if (error) return <div>An error has occurred!</div>
 
-  // useEffect(() => {
-  //   dispatch(fetchAllFilterFlights())
-  // }, [])
-
-  // if (loading) {
-  //   return <div>Loading...</div>
-  // }
-
+  if (isLoading) return <div>..Loading</div>
   return (
     <div className='flight'>
       <div className='flight__carrier'>
@@ -36,18 +24,13 @@ const Flight: React.FC = () => {
           </div>
         </div>
       </div>
+      <div className='flight__list'>
+        {data.map((flight: any, i: React.Key | null | undefined) => (
+          <FlightList key={i} flight={flight} />
+        ))}
+      </div>
+      {/* <div className='flight__select'>ВЫБРАТЬ</div> */}
     </div>
-    // <div className='flight__list'>
-    //   {flightsAll.map((flight, i) => (
-    //     <FlightList
-    //       key={i}
-    //       flight={flight}
-    //       arrivalDate={arrivalDate}
-    //       departureDate={departureDate}
-    //     />
-    //   ))}
-    // </div>
-    // <div className='flight__select'>ВЫБРАТЬ</div>
   )
 }
 

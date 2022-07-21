@@ -44,7 +44,10 @@
       padding: 0 10px;
     }
   }
-  //   > :last-child {
-  //     border-top: 1px solid blue;
-  //   }
+}
+.break {
+  display: flex;
+  width: 100%;
+  margin-top: 10px;
+  border-top: 2px solid blue;
 }

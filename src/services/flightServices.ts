@@ -5,7 +5,8 @@ export const flightApi = createApi({
   reducerPath: 'flightApi',
   baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3000/' }),
   endpoints: (build) => ({
-    getFlightByCaption: build.query<FlightElement, any>({
+    // надо типизировать!
+    getFlightByCaption: build.query<any, any>({
       query: (filters = '') =>
         `flights?_page=1&_limit=10
         ${

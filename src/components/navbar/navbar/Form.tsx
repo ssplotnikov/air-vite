@@ -1,12 +1,18 @@
 import React, { ChangeEvent, memo, useEffect } from 'react'
 import { useInputNumbers } from '../../../hooks/useInputNumbers'
 import { useAppDispatch } from '../../../hooks/useRedux'
-import { resetFilters, setFilters } from '../../../store/reducers/flitersSlice'
+import { setFilters } from '../../../store/reducers/flitersSlice'
 import { Avia } from './Avia'
-import { Filter } from './Filter'
 import { Price } from './Price'
 
-export const Form: React.FC<any> = memo(({ updateFilterList }) => {
+let updateFilterList: any = {
+  airline: [],
+  minPrice: '',
+  maxPrice: '',
+  stops: [],
+}
+
+export const Form: React.FC<any> = memo(() => {
   const dispatch = useAppDispatch()
   const handleFilters = () => {
     dispatch(setFilters(updateFilterList))
@@ -28,7 +34,6 @@ export const Form: React.FC<any> = memo(({ updateFilterList }) => {
 
   return (
     <>
-      <Filter />
       <Price minPrice={minPrice} maxPrice={maxPrice} />
       <Avia onChangeAvias={onChangeAvias} />
       <div className='navbar__form-btn' onClick={handleFilters}>
